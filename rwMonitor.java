@@ -40,7 +40,6 @@ public class rwMonitor {
     readcount++;
   }  // end of "startRead" method
 
- 
 
   //               ---- method endRead ----
   // The endRead method decrements readcount.

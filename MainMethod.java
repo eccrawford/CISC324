@@ -40,5 +40,12 @@ public class MainMethod {
     }
 */
     System.out.println("The simiulation of the computer system is starting"); // initial print of the computer system
+
+    UserJobs U;
+
+    for (int i=1; i <=4; i++) {
+      U = new UserJobs(i, sharedData);
+      U.start();
+    }
   }  // end of "main"
 }  // end of "MainMethod"
