@@ -38,7 +38,7 @@ public class MainMethod {
       R = new Reader(i, sharedData);
       R.start();
     }
-*/
+    */
     System.out.println("The simiulation of the computer system is starting"); // initial print of the computer system
 
     UserJob U;
