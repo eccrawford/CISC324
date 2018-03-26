@@ -21,24 +21,7 @@ public class MainMethod {
     // to access and update a more complex data structure.
     SharedDataStruct sharedData;         // declare sharedData
     sharedData = new SharedDataStruct(); // assign a value to sharedData
-
-
-    // Create several Reader and Writer threads.  The parameters are
-    //    i - an identification number for the reader or writer thread
-    //    sharedData - the data structure that is supposed to be accessed
-
-
-    /*
-    Reader R;  // R can hold an instance of class Reader
-    Writer W;  
-
-    for (int i=1; i<=4; i++) {
-      W = new Writer(i, sharedData);
-      W.start();
-      R = new Reader(i, sharedData);
-      R.start();
-    }
-    */
+    
     System.out.println("The simiulation of the computer system is starting"); // initial print of the computer system
 
     UserJob U;
