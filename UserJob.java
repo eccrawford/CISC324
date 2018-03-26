@@ -13,12 +13,18 @@ public class UserJob extends Thread {
 
     public void run () {
         int val;  // The value read from the database
+        int CPUtime = 100;
+        int IOtime = 300;
 
         for (int I = 0;  I < 5; I++) {
             System.out.println("UserJob "+I+ " is starting");
 
             // Simulate "doing something else" by delaying for a while.
-            try { sleep((int)(500.0*Math.random()+1)); } catch(Exception e) {break;}
+            System.out.println( "UserJob "+ I+ " starting CPU burst of length "+ CPUtime);
+            try { sleep(CPUtime); } catch(Exception e) {break;}
+            System.out.println("UserJob " + I + " starting IO burst of length " + IOtime);
+            try { sleep( IOtime); } catch(Exception e) {break;}
         } // end of "for" loop
+
     }  // end of "run" method
 }
