@@ -27,6 +27,8 @@ public class MainMethod {
     //    i - an identification number for the reader or writer thread
     //    sharedData - the data structure that is supposed to be accessed
 
+
+    /*
     Reader R;  // R can hold an instance of class Reader
     Writer W;  
 
@@ -36,7 +38,7 @@ public class MainMethod {
       R = new Reader(i, sharedData);
       R.start();
     }
-
-    System.out.println("This is main speaking");
+*/
+    System.out.println("The simiulation of the computer system is starting"); // initial print of the computer system
   }  // end of "main"
 }  // end of "MainMethod"
