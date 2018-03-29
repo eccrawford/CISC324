@@ -3,13 +3,11 @@
  */
 public class UserJob extends Thread{
     int myName;
-    SharedDataStruct sharedData;
     boolean bound;
 
 
-    public UserJob(int name, SharedDataStruct SD, boolean destination) {
+    public UserJob(int name, boolean destination) {
         myName = name;    // copy the parameter value to local variable "MyName"
-        sharedData = SD;  // sharedData refers to the SharedDataStruct object
         bound = destination;
     }
 
