@@ -33,10 +33,10 @@ public class UserJob extends Thread{
                 } // shorter time
             }
             else {
-                System.out.println("UserJob "+I+ " is requesting access to tack "+ IOtrack);
+                System.out.println("UserJob "+I+ " is requesting access to track "+ IOtrack);
                 System.out.println("UserJob " + I + " starting IO burst of length " + IOtime);
                 DiskDrive.useTheDisk(IOtrack); // longer time
-                System.out.println("UserJob "+I+ " is finished accessing tack "+ IOtrack);
+                System.out.println("UserJob "+I+ " is finished accessing track "+ IOtrack);
                 }
         } // end of "for" loop
 
