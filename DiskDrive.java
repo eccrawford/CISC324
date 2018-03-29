@@ -3,9 +3,17 @@ public class DiskDrive {
     int startTrack = 0; //This is where the disk-read-head starts
     int endTrack;
     int daTime;
+    int diskInUse = 0;
 
-    public void useTheDisk(int nextTrack) {
+    public synchronized void useTheDisk(int nextTrack) {
 
+        while (diskInUse > 0) {
+            try {
+                wait();
+            } catch (Exception e) {}
+        }
+
+        diskInUse ++;
         endTrack = nextTrack; // This is where it needs to go
         daTime = 1 + Math.abs(endTrack - startTrack); // Disk access time
         System.out.println("The disk-read-head is currently at "+ startTrack + " and will move " + (daTime - 1)
@@ -15,6 +23,8 @@ public class DiskDrive {
             Thread.sleep(daTime);
         } catch (Exception e) {
         }
+        diskInUse --;
+        notify();
     }
 
    /* public void run (){
