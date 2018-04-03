@@ -26,8 +26,8 @@ public class CPUMonitor {
                 wait();
             } catch (Exception e) {};
         }
-            useCPU(0, process);
-            System.out.println("UserJob " + process + " is executing on CPU " + getProcess(process));
+        useCPU(0, process);
+        System.out.println("UserJob " + process + " is executing on CPU " + getProcess(process));
     }
 
     public synchronized void endCPU(int process) {

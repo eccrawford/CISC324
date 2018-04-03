@@ -7,7 +7,7 @@ public class DiskDrive {
 
     public synchronized void useTheDisk(int nextTrack) {
 
-        while (diskInUse > 0) {
+       while (diskInUse > 0) {
             try {
                 wait();
             } catch (Exception e) {}
@@ -21,8 +21,7 @@ public class DiskDrive {
         startTrack = endTrack; //This is where the disk-read-head will start on next call
         try {
             Thread.sleep(daTime);
-        } catch (Exception e) {
-        }
+        } catch (Exception e) {};
         diskInUse --;
         notify();
     }
