@@ -17,7 +17,7 @@ public class UserJob extends Thread{
         DiskDrive DiskDrive = new DiskDrive();
         CPUMonitor cpu = new CPUMonitor();
 
-        for (int I = 0;  I <= 4; I++) {
+        for (int I = 1;  I <= 4; I++) {
             System.out.println("UserJob "+myName+ " is starting");
             int IOtrack = (int) (Math.random() * 1024);
 
@@ -39,7 +39,7 @@ public class UserJob extends Thread{
             catch (Exception e) {};
             cpu.endCPU(myName);
             System.out.println("UserJob "+I+ " is requesting access to track "+ IOtrack);
-            DiskDrive.useTheDisk(IOtrack); // longer time
+            DiskDrive.useTheDisk(IOtrack);
             System.out.println("UserJob "+I+ " is finished accessing track "+ IOtrack);
 
 

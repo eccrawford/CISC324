@@ -1,5 +1,3 @@
-import sun.plugin2.gluegen.runtime.CPU;
-
 /**
  * Created by eccrawford on 2018-04-02.
  */
