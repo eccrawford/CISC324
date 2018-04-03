@@ -4,6 +4,8 @@
 public class UserJob extends Thread{
     int myName;
     boolean bound;
+    public DiskDrive DiskDrive = new DiskDrive();
+    public CPUMonitor cpu = new CPUMonitor();
 
 
     public UserJob(int name, boolean destination) {
@@ -14,11 +16,10 @@ public class UserJob extends Thread{
     public void run () {
         int CPUtime = 100 + (int)(Math.random() * ((1000-100)+1));
         int IOtime = 1 + (int)(Math.random() * ((200-1)+1));
-        DiskDrive DiskDrive = new DiskDrive();
-        CPUMonitor cpu = new CPUMonitor();
-
-        for (int I = 1;  I <= 4; I++) {
-            System.out.println("UserJob "+myName+ " is starting");
+        //DiskDrive = new DiskDrive();
+        //cpu = new CPUMonitor();
+        System.out.println("UserJob "+myName+ " is starting");
+        for (int I = 1;  I <= 10; I++) {
             int IOtrack = (int) (Math.random() * 1024);
 
             if (bound) {
@@ -38,9 +39,9 @@ public class UserJob extends Thread{
             }
             catch (Exception e) {};
             cpu.endCPU(myName);
-            System.out.println("UserJob "+I+ " is requesting access to track "+ IOtrack);
+            System.out.println("UserJob "+myName+ " is requesting access to track "+ IOtrack);
             DiskDrive.useTheDisk(IOtrack);
-            System.out.println("UserJob "+I+ " is finished accessing track "+ IOtrack);
+            System.out.println("UserJob "+myName+ " is finished accessing track "+ IOtrack);
 
 
         } // end of "for" loop

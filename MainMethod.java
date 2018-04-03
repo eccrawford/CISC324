@@ -9,18 +9,16 @@ public class MainMethod {
     System.out.println("The simulation of the computer system is starting"); // initial print of the computer system
 
     UserJob U;
-    //UserJob V;
 
-    for (int i=1; i <=4; i++) {
+    for (int i=1; i <=20; i++) {
       // half the jobs will be IO bound, half CPU bound
       if(i % 2 == 0) {
         U = new UserJob(i, IObound);
-        U.start();
       }
       else {
         U = new UserJob(i, CPUbound);
-        U.start();
       }
+      U.start();
     }
 
   }  // end of "main"
