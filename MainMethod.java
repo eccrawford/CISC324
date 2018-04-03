@@ -11,11 +11,16 @@ public class MainMethod {
     UserJob U;
     UserJob V;
 
-    for (int i=1; i <=20; i++) {
-      U = new UserJob(i, IObound);
-      U.run();
-      V = new UserJob(i, CPUbound);
-      V.run();
+    for (int i=1; i <=4; i++) {
+      // half the jobs will be IO bound, half CPU bound
+      if(i % 2 == 0) {
+        U = new UserJob(i, IObound);
+        U.run();
+      }
+      else {
+        V = new UserJob(i, CPUbound);
+        V.run();
+      }
     }
 
   }  // end of "main"
