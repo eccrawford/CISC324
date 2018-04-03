@@ -11,7 +11,7 @@ public class MainMethod {
     UserJob U;
     UserJob V;
 
-    for (int i=1; i <=4; i++) {
+    for (int i=1; i <=20; i++) {
       U = new UserJob(i, IObound);
       U.run();
       V = new UserJob(i, CPUbound);

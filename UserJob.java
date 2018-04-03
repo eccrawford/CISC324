@@ -17,28 +17,35 @@ public class UserJob{
         DiskDrive DiskDrive = new DiskDrive();
         CPUMonitor cpu = new CPUMonitor();
 
-        for (int I = 0;  I < 5; I++) {
+        for (int I = 0;  I < 20; I++) {
             System.out.println("UserJob "+I+ " is starting");
             int IOtrack = (int) (Math.random() * 1024);
 
             // Simulate "doing something else" by delaying for a while.
             if (bound) {
                 System.out.println("UserJob " + I + " starting CPU burst of length " + CPUtime);
-                cpu.startCPU(I);
-
-                try {
-                    Thread.sleep(CPUtime);
-                } catch (Exception e) {
-                    break;
-                } // shorter time
-                cpu.endCPU(I);
+                //cpu.startCPU(I);
             }
             else {
-                System.out.println("UserJob "+I+ " is requesting access to track "+ IOtrack);
                 System.out.println("UserJob " + I + " starting IO burst of length " + IOtime);
-                DiskDrive.useTheDisk(IOtrack); // longer time
-                System.out.println("UserJob "+I+ " is finished accessing track "+ IOtrack);
+            }
+            cpu.startCPU(myName);
+            try {
+                if(bound) {
+                    Thread.sleep(CPUtime);
                 }
+                else {
+                    Thread.sleep(IOtime);
+                }
+            } catch (Exception e) {
+                break;
+            } // shorter time
+            cpu.endCPU(myName);
+            System.out.println("UserJob "+I+ " is requesting access to track "+ IOtrack);
+            DiskDrive.useTheDisk(IOtrack); // longer time
+            System.out.println("UserJob "+I+ " is finished accessing track "+ IOtrack);
+
+
         } // end of "for" loop
 
     }  // end of "run" method
