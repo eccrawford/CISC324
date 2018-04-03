@@ -13,9 +13,9 @@ public class MainMethod {
 
     for (int i=1; i <=4; i++) {
       U = new UserJob(i, IObound);
-      U.start();
+      U.run();
       V = new UserJob(i, CPUbound);
-      V.start();
+      V.run();
     }
 
   }  // end of "main"

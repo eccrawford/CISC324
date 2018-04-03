@@ -1,7 +1,7 @@
 /**
  * Created by eccrawford on 2018-03-26.
  */
-public class UserJob extends Thread{
+public class UserJob{
     int myName;
     boolean bound;
 
@@ -15,6 +15,7 @@ public class UserJob extends Thread{
         int CPUtime = 100 + (int)(Math.random() * ((1000-100)+1));
         int IOtime = 1 + (int)(Math.random() * ((200-1)+1));
         DiskDrive DiskDrive = new DiskDrive();
+        CPUMonitor cpu = new CPUMonitor();
 
         for (int I = 0;  I < 5; I++) {
             System.out.println("UserJob "+I+ " is starting");
@@ -23,12 +24,14 @@ public class UserJob extends Thread{
             // Simulate "doing something else" by delaying for a while.
             if (bound) {
                 System.out.println("UserJob " + I + " starting CPU burst of length " + CPUtime);
+                cpu.startCPU(I);
 
                 try {
-                    sleep(CPUtime);
+                    Thread.sleep(CPUtime);
                 } catch (Exception e) {
                     break;
                 } // shorter time
+                cpu.endCPU(I);
             }
             else {
                 System.out.println("UserJob "+I+ " is requesting access to track "+ IOtrack);
