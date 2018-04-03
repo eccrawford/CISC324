@@ -25,7 +25,6 @@ public class CPUMonitor {
     public synchronized  void startCPU(int process) {
         while(checkCPUs()) {
             try {
-                System.out.println("Jello2");
                 wait();
             } catch (Exception e) {};
         }

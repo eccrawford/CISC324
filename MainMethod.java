@@ -1,4 +1,4 @@
-// This program demonstrates synchronizattion CPU and IO bound processes attempting to access a disk
+// This program demonstrates synchronization CPU and IO bound processes attempting to access a disk
 
 
 public class MainMethod {
@@ -15,11 +15,11 @@ public class MainMethod {
       // half the jobs will be IO bound, half CPU bound
       if(i % 2 == 0) {
         U = new UserJob(i, IObound);
-        U.run();
+        U.start();
       }
       else {
         V = new UserJob(i, CPUbound);
-        V.run();
+        V.start();
       }
     }
 
