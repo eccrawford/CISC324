@@ -48,7 +48,6 @@ public class CPUMonitor {
         return -1;
     }
 
-
     public static boolean checkCPUs() {
         for (int i = 0; i < CPUs.length; i++) { // check if there are any free CPUs
             if (CPUs[i] == 0) {
